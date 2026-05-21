@@ -1,7 +1,7 @@
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from "../prisma/prisma.service";
-import type { CreateContractDto } from './dto/create-contract.dto';
+import { CreateContractDto } from './dto/create-contract.dto';
 export declare class ContractsService {
     private readonly prisma;
     private readonly jwtService;

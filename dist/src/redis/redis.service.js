@@ -20,12 +20,18 @@ let RedisService = RedisService_1 = class RedisService {
         this.logger = new common_1.Logger(RedisService_1.name);
     }
     onModuleInit() {
-        this.client = new ioredis_1.default({
-            host: this.configService.get('REDIS_HOST', 'localhost'),
-            port: this.configService.get('REDIS_PORT', 6379),
-            password: this.configService.get('REDIS_PASSWORD'),
-            lazyConnect: true,
-        });
+        const url = this.configService.get('REDIS_URL');
+        this.client = url
+            ? new ioredis_1.default(url, {
+                lazyConnect: true,
+                ...(url.startsWith('rediss://') ? { tls: { rejectUnauthorized: false } } : {}),
+            })
+            : new ioredis_1.default({
+                host: this.configService.get('REDIS_HOST', 'localhost'),
+                port: this.configService.get('REDIS_PORT', 6379),
+                password: this.configService.get('REDIS_PASSWORD'),
+                lazyConnect: true,
+            });
         this.client.on('connect', () => this.logger.log('Connected to Redis'));
         this.client.on('error', (err) => this.logger.error('Redis error', err));
     }

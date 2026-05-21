@@ -14,9 +14,16 @@ exports.PrismaService = void 0;
 const common_1 = require("@nestjs/common");
 const client_1 = require("@prisma/client");
 const adapter_pg_1 = require("@prisma/adapter-pg");
+const pg_1 = require("pg");
 let PrismaService = PrismaService_1 = class PrismaService extends client_1.PrismaClient {
     constructor() {
-        const adapter = new adapter_pg_1.PrismaPg({ connectionString: process.env.DATABASE_URL });
+        const connectionString = process.env.DATABASE_URL;
+        const isRemote = !connectionString.includes('localhost') && !connectionString.includes('127.0.0.1');
+        const pool = new pg_1.Pool({
+            connectionString,
+            ...(isRemote ? { ssl: { rejectUnauthorized: false } } : {}),
+        });
+        const adapter = new adapter_pg_1.PrismaPg(pool);
         super({ adapter });
         this.logger = new common_1.Logger(PrismaService_1.name);
     }

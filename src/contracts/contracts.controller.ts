@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Param, Body, UseGuards } from '@nestjs/common'
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger'
-import type { ContractsService } from './contracts.service'
-import type { CreateContractDto } from './dto/create-contract.dto'
+import { ContractsService } from './contracts.service'
+import { CreateContractDto } from './dto/create-contract.dto'
 import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard'
 import { CurrentUser, type JwtPayload } from '@common/decorators/current-user.decorator'
 

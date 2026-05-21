@@ -1,8 +1,8 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { PassportStrategy } from '@nestjs/passport'
 import { ExtractJwt, Strategy } from 'passport-jwt'
-import type { ConfigService } from '@nestjs/config'
-import type { RedisService } from '@redis-service/redis.service'
+import { ConfigService } from '@nestjs/config'
+import { RedisService } from '@redis-service/redis.service'
 import type { JwtPayload } from '@common/decorators/current-user.decorator'
 
 @Injectable()

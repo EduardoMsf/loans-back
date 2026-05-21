@@ -5,15 +5,15 @@ import {
   BadRequestException,
   Logger,
 } from '@nestjs/common'
-import type { JwtService } from '@nestjs/jwt'
-import type { ConfigService } from '@nestjs/config'
-import type { PrismaService } from '@prisma-service/prisma.service'
-import type { RedisService } from '@redis-service/redis.service'
+import { JwtService } from '@nestjs/jwt'
+import { ConfigService } from '@nestjs/config'
+import { PrismaService } from '@prisma-service/prisma.service'
+import { RedisService } from '@redis-service/redis.service'
 import * as bcrypt from 'bcrypt'
 import { v4 as uuidv4 } from 'uuid'
-import type { LoginDto } from './dto/login.dto'
-import type { RegisterDto } from './dto/register.dto'
-import type { ReAuthDto } from './dto/re-auth.dto'
+import { LoginDto } from './dto/login.dto'
+import { RegisterDto } from './dto/register.dto'
+import { ReAuthDto } from './dto/re-auth.dto'
 
 @Injectable()
 export class AuthService {

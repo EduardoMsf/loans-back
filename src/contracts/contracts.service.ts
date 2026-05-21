@@ -5,11 +5,11 @@ import {
   BadRequestException,
   Logger,
 } from '@nestjs/common'
-import type { JwtService } from '@nestjs/jwt'
-import type { ConfigService } from '@nestjs/config'
-import type { PrismaService } from '@prisma-service/prisma.service'
+import { JwtService } from '@nestjs/jwt'
+import { ConfigService } from '@nestjs/config'
+import { PrismaService } from '@prisma-service/prisma.service'
 import { ContractStatus } from '@prisma/client'
-import type { CreateContractDto } from './dto/create-contract.dto'
+import { CreateContractDto } from './dto/create-contract.dto'
 
 @Injectable()
 export class ContractsService {

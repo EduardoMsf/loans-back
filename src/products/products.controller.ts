@@ -1,6 +1,6 @@
 import { Controller, Get, Param, UseGuards } from '@nestjs/common'
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger'
-import type { ProductsService } from './products.service'
+import { ProductsService } from './products.service'
 import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard'
 
 @ApiTags('Products')

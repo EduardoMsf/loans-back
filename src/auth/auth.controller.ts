@@ -1,11 +1,11 @@
 import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common'
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger'
-import type { AuthService } from './auth.service'
-import type { LoginDto } from './dto/login.dto'
-import type { RegisterDto } from './dto/register.dto'
-import type { ForgotPasswordDto } from './dto/forgot-password.dto'
-import type { ResetPasswordDto } from './dto/reset-password.dto'
-import type { ReAuthDto } from './dto/re-auth.dto'
+import { AuthService } from './auth.service'
+import { LoginDto } from './dto/login.dto'
+import { RegisterDto } from './dto/register.dto'
+import { ForgotPasswordDto } from './dto/forgot-password.dto'
+import { ResetPasswordDto } from './dto/reset-password.dto'
+import { ReAuthDto } from './dto/re-auth.dto'
 
 @ApiTags('Auth')
 @Controller('auth')

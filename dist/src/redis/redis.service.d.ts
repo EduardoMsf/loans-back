@@ -1,4 +1,4 @@
-import { OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import type { OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 export declare class RedisService implements OnModuleInit, OnModuleDestroy {
     private readonly configService;

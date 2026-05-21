@@ -11,10 +11,7 @@ async function bootstrap() {
     const configService = app.get(config_1.ConfigService);
     app.setGlobalPrefix('api');
     app.enableCors({
-        origin: [
-            'http://localhost:3000',
-            process.env.FRONTEND_URL ?? 'http://localhost:3000',
-        ],
+        origin: ['http://localhost:3000', process.env.FRONTEND_URL ?? 'http://localhost:3000'],
         methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
         credentials: true,
     });

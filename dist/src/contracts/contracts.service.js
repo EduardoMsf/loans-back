@@ -12,9 +12,6 @@ var ContractsService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContractsService = void 0;
 const common_1 = require("@nestjs/common");
-const jwt_1 = require("@nestjs/jwt");
-const config_1 = require("@nestjs/config");
-const prisma_service_1 = require("../prisma/prisma.service");
 const client_1 = require("@prisma/client");
 let ContractsService = ContractsService_1 = class ContractsService {
     constructor(prisma, jwtService, configService) {
@@ -111,8 +108,6 @@ let ContractsService = ContractsService_1 = class ContractsService {
 exports.ContractsService = ContractsService;
 exports.ContractsService = ContractsService = ContractsService_1 = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService,
-        jwt_1.JwtService,
-        config_1.ConfigService])
+    __metadata("design:paramtypes", [Function, Function, Function])
 ], ContractsService);
 //# sourceMappingURL=contracts.service.js.map

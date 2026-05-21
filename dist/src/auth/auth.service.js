@@ -12,10 +12,6 @@ var AuthService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
-const jwt_1 = require("@nestjs/jwt");
-const config_1 = require("@nestjs/config");
-const prisma_service_1 = require("../prisma/prisma.service");
-const redis_service_1 = require("../redis/redis.service");
 const bcrypt = require("bcrypt");
 const uuid_1 = require("uuid");
 let AuthService = AuthService_1 = class AuthService {
@@ -119,9 +115,6 @@ let AuthService = AuthService_1 = class AuthService {
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = AuthService_1 = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService,
-        jwt_1.JwtService,
-        config_1.ConfigService,
-        redis_service_1.RedisService])
+    __metadata("design:paramtypes", [Function, Function, Function, Function])
 ], AuthService);
 //# sourceMappingURL=auth.service.js.map

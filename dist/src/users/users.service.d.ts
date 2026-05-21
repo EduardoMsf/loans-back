@@ -1,11 +1,11 @@
-import { PrismaService } from "../prisma/prisma.service";
+import type { PrismaService } from "../prisma/prisma.service";
 export declare class UsersService {
     private readonly prisma;
     constructor(prisma: PrismaService);
     findById(id: string): Promise<{
+        id: string;
         email: string;
         name: string;
-        id: string;
         rfc: string | null;
         phone: string | null;
         address: string | null;
@@ -17,9 +17,9 @@ export declare class UsersService {
         phone?: string;
         address?: string;
     }): Promise<{
+        id: string;
         email: string;
         name: string;
-        id: string;
         rfc: string | null;
         phone: string | null;
         address: string | null;

@@ -1,12 +1,12 @@
-import { PrismaService } from "../prisma/prisma.service";
+import type { PrismaService } from "../prisma/prisma.service";
 export declare class AccountsService {
     private readonly prisma;
     constructor(prisma: PrismaService);
     findAllByUser(userId: string): Promise<{
-        type: import("@prisma/client").$Enums.AccountType;
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        type: import("@prisma/client").$Enums.AccountType;
         currency: string;
         isActive: boolean;
         userId: string;

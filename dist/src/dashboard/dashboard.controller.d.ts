@@ -1,4 +1,4 @@
-import { DashboardService } from './dashboard.service';
+import type { DashboardService } from './dashboard.service';
 import { type JwtPayload } from "../common/decorators/current-user.decorator";
 export declare class DashboardController {
     private readonly dashboardService;
@@ -10,8 +10,8 @@ export declare class DashboardController {
         avgAnnualReturn: number;
         activeContractsList: ({
             product: {
-                type: import("@prisma/client").$Enums.ProductType;
                 name: string;
+                type: import("@prisma/client").$Enums.ProductType;
                 annualReturn: import("@prisma/client/runtime/client").Decimal;
                 icon: string;
             };
@@ -21,14 +21,14 @@ export declare class DashboardController {
             updatedAt: Date;
             currency: string;
             userId: string;
+            folio: string;
             productId: string;
             debitAccountId: string;
             creditAccountId: string;
-            amount: import("@prisma/client/runtime/client").Decimal;
-            clientInfo: import("@prisma/client/runtime/client").JsonValue;
-            folio: string;
             status: import("@prisma/client").$Enums.ContractStatus;
+            amount: import("@prisma/client/runtime/client").Decimal;
             signedAt: Date | null;
+            clientInfo: import("@prisma/client/runtime/client").JsonValue;
         })[];
     }>;
 }

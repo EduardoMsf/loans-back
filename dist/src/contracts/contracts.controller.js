@@ -15,8 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContractsController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
-const contracts_service_1 = require("./contracts.service");
-const create_contract_dto_1 = require("./dto/create-contract.dto");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const current_user_decorator_1 = require("../common/decorators/current-user.decorator");
 let ContractsController = class ContractsController {
@@ -57,7 +55,7 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_contract_dto_1.CreateContractDto, Object]),
+    __metadata("design:paramtypes", [Function, Object]),
     __metadata("design:returntype", void 0)
 ], ContractsController.prototype, "create", null);
 exports.ContractsController = ContractsController = __decorate([
@@ -65,6 +63,6 @@ exports.ContractsController = ContractsController = __decorate([
     (0, swagger_1.ApiBearerAuth)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Controller)('contracts'),
-    __metadata("design:paramtypes", [contracts_service_1.ContractsService])
+    __metadata("design:paramtypes", [Function])
 ], ContractsController);
 //# sourceMappingURL=contracts.controller.js.map

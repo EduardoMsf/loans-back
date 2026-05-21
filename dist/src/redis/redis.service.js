@@ -12,7 +12,6 @@ var RedisService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RedisService = void 0;
 const common_1 = require("@nestjs/common");
-const config_1 = require("@nestjs/config");
 const ioredis_1 = require("ioredis");
 let RedisService = RedisService_1 = class RedisService {
     constructor(configService) {
@@ -75,6 +74,6 @@ let RedisService = RedisService_1 = class RedisService {
 exports.RedisService = RedisService;
 exports.RedisService = RedisService = RedisService_1 = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [config_1.ConfigService])
+    __metadata("design:paramtypes", [Function])
 ], RedisService);
 //# sourceMappingURL=redis.service.js.map

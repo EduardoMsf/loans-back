@@ -1,13 +1,13 @@
-import { AccountsService } from './accounts.service';
+import type { AccountsService } from './accounts.service';
 import { type JwtPayload } from "../common/decorators/current-user.decorator";
 export declare class AccountsController {
     private readonly accountsService;
     constructor(accountsService: AccountsService);
     findAll(user: JwtPayload): Promise<{
-        type: import("@prisma/client").$Enums.AccountType;
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        type: import("@prisma/client").$Enums.AccountType;
         currency: string;
         isActive: boolean;
         userId: string;

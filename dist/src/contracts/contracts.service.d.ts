@@ -1,7 +1,7 @@
-import { JwtService } from '@nestjs/jwt';
-import { ConfigService } from '@nestjs/config';
-import { PrismaService } from "../prisma/prisma.service";
-import { CreateContractDto } from './dto/create-contract.dto';
+import type { JwtService } from '@nestjs/jwt';
+import type { ConfigService } from '@nestjs/config';
+import type { PrismaService } from "../prisma/prisma.service";
+import type { CreateContractDto } from './dto/create-contract.dto';
 export declare class ContractsService {
     private readonly prisma;
     private readonly jwtService;
@@ -10,8 +10,8 @@ export declare class ContractsService {
     constructor(prisma: PrismaService, jwtService: JwtService, configService: ConfigService);
     findAllByUser(userId: string): Promise<({
         product: {
-            type: import("@prisma/client").$Enums.ProductType;
             name: string;
+            type: import("@prisma/client").$Enums.ProductType;
             icon: string;
         };
         debitAccount: {
@@ -28,23 +28,23 @@ export declare class ContractsService {
         updatedAt: Date;
         currency: string;
         userId: string;
+        folio: string;
         productId: string;
         debitAccountId: string;
         creditAccountId: string;
-        amount: import("@prisma/client/runtime/client").Decimal;
-        clientInfo: import("@prisma/client/runtime/client").JsonValue;
-        folio: string;
         status: import("@prisma/client").$Enums.ContractStatus;
+        amount: import("@prisma/client/runtime/client").Decimal;
         signedAt: Date | null;
+        clientInfo: import("@prisma/client/runtime/client").JsonValue;
     })[]>;
     findById(id: string, userId: string): Promise<{
         product: {
-            type: import("@prisma/client").$Enums.ProductType;
-            description: string;
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("@prisma/client").$Enums.ProductType;
+            description: string;
             minAmount: import("@prisma/client/runtime/client").Decimal;
             currency: string;
             annualReturn: import("@prisma/client/runtime/client").Decimal;
@@ -53,10 +53,10 @@ export declare class ContractsService {
             isActive: boolean;
         };
         debitAccount: {
-            type: import("@prisma/client").$Enums.AccountType;
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("@prisma/client").$Enums.AccountType;
             currency: string;
             isActive: boolean;
             userId: string;
@@ -67,10 +67,10 @@ export declare class ContractsService {
             balance: import("@prisma/client/runtime/client").Decimal;
         };
         creditAccount: {
-            type: import("@prisma/client").$Enums.AccountType;
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("@prisma/client").$Enums.AccountType;
             currency: string;
             isActive: boolean;
             userId: string;
@@ -86,19 +86,19 @@ export declare class ContractsService {
         updatedAt: Date;
         currency: string;
         userId: string;
+        folio: string;
         productId: string;
         debitAccountId: string;
         creditAccountId: string;
-        amount: import("@prisma/client/runtime/client").Decimal;
-        clientInfo: import("@prisma/client/runtime/client").JsonValue;
-        folio: string;
         status: import("@prisma/client").$Enums.ContractStatus;
+        amount: import("@prisma/client/runtime/client").Decimal;
         signedAt: Date | null;
+        clientInfo: import("@prisma/client/runtime/client").JsonValue;
     }>;
     create(userId: string, dto: CreateContractDto): Promise<{
         product: {
-            type: import("@prisma/client").$Enums.ProductType;
             name: string;
+            type: import("@prisma/client").$Enums.ProductType;
         };
     } & {
         id: string;
@@ -106,14 +106,14 @@ export declare class ContractsService {
         updatedAt: Date;
         currency: string;
         userId: string;
+        folio: string;
         productId: string;
         debitAccountId: string;
         creditAccountId: string;
-        amount: import("@prisma/client/runtime/client").Decimal;
-        clientInfo: import("@prisma/client/runtime/client").JsonValue;
-        folio: string;
         status: import("@prisma/client").$Enums.ContractStatus;
+        amount: import("@prisma/client/runtime/client").Decimal;
         signedAt: Date | null;
+        clientInfo: import("@prisma/client/runtime/client").JsonValue;
     }>;
     private validateSignatureToken;
     private generateFolio;

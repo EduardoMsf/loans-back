@@ -1,14 +1,14 @@
-import { ProductsService } from './products.service';
+import type { ProductsService } from './products.service';
 export declare class ProductsController {
     private readonly productsService;
     constructor(productsService: ProductsService);
     findAll(): Promise<{
-        type: import("@prisma/client").$Enums.ProductType;
-        description: string;
-        name: string;
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
+        type: import("@prisma/client").$Enums.ProductType;
+        description: string;
         minAmount: import("@prisma/client/runtime/client").Decimal;
         currency: string;
         annualReturn: import("@prisma/client/runtime/client").Decimal;
@@ -17,12 +17,12 @@ export declare class ProductsController {
         isActive: boolean;
     }[]>;
     findById(id: string): Promise<{
-        type: import("@prisma/client").$Enums.ProductType;
-        description: string;
-        name: string;
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
+        type: import("@prisma/client").$Enums.ProductType;
+        description: string;
         minAmount: import("@prisma/client/runtime/client").Decimal;
         currency: string;
         annualReturn: import("@prisma/client/runtime/client").Decimal;

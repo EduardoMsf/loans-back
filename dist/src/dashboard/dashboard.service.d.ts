@@ -1,4 +1,4 @@
-import { PrismaService } from "../prisma/prisma.service";
+import type { PrismaService } from "../prisma/prisma.service";
 export declare class DashboardService {
     private readonly prisma;
     constructor(prisma: PrismaService);
@@ -9,8 +9,8 @@ export declare class DashboardService {
         avgAnnualReturn: number;
         activeContractsList: ({
             product: {
-                type: import("@prisma/client").$Enums.ProductType;
                 name: string;
+                type: import("@prisma/client").$Enums.ProductType;
                 annualReturn: import("@prisma/client/runtime/client").Decimal;
                 icon: string;
             };
@@ -20,14 +20,14 @@ export declare class DashboardService {
             updatedAt: Date;
             currency: string;
             userId: string;
+            folio: string;
             productId: string;
             debitAccountId: string;
             creditAccountId: string;
-            amount: import("@prisma/client/runtime/client").Decimal;
-            clientInfo: import("@prisma/client/runtime/client").JsonValue;
-            folio: string;
             status: import("@prisma/client").$Enums.ContractStatus;
+            amount: import("@prisma/client/runtime/client").Decimal;
             signedAt: Date | null;
+            clientInfo: import("@prisma/client/runtime/client").JsonValue;
         })[];
     }>;
 }

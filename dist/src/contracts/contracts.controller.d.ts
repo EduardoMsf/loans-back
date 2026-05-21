@@ -1,13 +1,13 @@
-import { ContractsService } from './contracts.service';
-import { CreateContractDto } from './dto/create-contract.dto';
+import type { ContractsService } from './contracts.service';
+import type { CreateContractDto } from './dto/create-contract.dto';
 import { type JwtPayload } from "../common/decorators/current-user.decorator";
 export declare class ContractsController {
     private readonly contractsService;
     constructor(contractsService: ContractsService);
     findAll(user: JwtPayload): Promise<({
         product: {
-            type: import("@prisma/client").$Enums.ProductType;
             name: string;
+            type: import("@prisma/client").$Enums.ProductType;
             icon: string;
         };
         debitAccount: {
@@ -24,23 +24,23 @@ export declare class ContractsController {
         updatedAt: Date;
         currency: string;
         userId: string;
+        folio: string;
         productId: string;
         debitAccountId: string;
         creditAccountId: string;
-        amount: import("@prisma/client/runtime/client").Decimal;
-        clientInfo: import("@prisma/client/runtime/client").JsonValue;
-        folio: string;
         status: import("@prisma/client").$Enums.ContractStatus;
+        amount: import("@prisma/client/runtime/client").Decimal;
         signedAt: Date | null;
+        clientInfo: import("@prisma/client/runtime/client").JsonValue;
     })[]>;
     findById(id: string, user: JwtPayload): Promise<{
         product: {
-            type: import("@prisma/client").$Enums.ProductType;
-            description: string;
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("@prisma/client").$Enums.ProductType;
+            description: string;
             minAmount: import("@prisma/client/runtime/client").Decimal;
             currency: string;
             annualReturn: import("@prisma/client/runtime/client").Decimal;
@@ -49,10 +49,10 @@ export declare class ContractsController {
             isActive: boolean;
         };
         debitAccount: {
-            type: import("@prisma/client").$Enums.AccountType;
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("@prisma/client").$Enums.AccountType;
             currency: string;
             isActive: boolean;
             userId: string;
@@ -63,10 +63,10 @@ export declare class ContractsController {
             balance: import("@prisma/client/runtime/client").Decimal;
         };
         creditAccount: {
-            type: import("@prisma/client").$Enums.AccountType;
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("@prisma/client").$Enums.AccountType;
             currency: string;
             isActive: boolean;
             userId: string;
@@ -82,19 +82,19 @@ export declare class ContractsController {
         updatedAt: Date;
         currency: string;
         userId: string;
+        folio: string;
         productId: string;
         debitAccountId: string;
         creditAccountId: string;
-        amount: import("@prisma/client/runtime/client").Decimal;
-        clientInfo: import("@prisma/client/runtime/client").JsonValue;
-        folio: string;
         status: import("@prisma/client").$Enums.ContractStatus;
+        amount: import("@prisma/client/runtime/client").Decimal;
         signedAt: Date | null;
+        clientInfo: import("@prisma/client/runtime/client").JsonValue;
     }>;
     create(dto: CreateContractDto, user: JwtPayload): Promise<{
         product: {
-            type: import("@prisma/client").$Enums.ProductType;
             name: string;
+            type: import("@prisma/client").$Enums.ProductType;
         };
     } & {
         id: string;
@@ -102,13 +102,13 @@ export declare class ContractsController {
         updatedAt: Date;
         currency: string;
         userId: string;
+        folio: string;
         productId: string;
         debitAccountId: string;
         creditAccountId: string;
-        amount: import("@prisma/client/runtime/client").Decimal;
-        clientInfo: import("@prisma/client/runtime/client").JsonValue;
-        folio: string;
         status: import("@prisma/client").$Enums.ContractStatus;
+        amount: import("@prisma/client/runtime/client").Decimal;
         signedAt: Date | null;
+        clientInfo: import("@prisma/client/runtime/client").JsonValue;
     }>;
 }

@@ -22,7 +22,9 @@ let DashboardService = class DashboardService {
             this.prisma.contract.count({ where: { userId } }),
             this.prisma.contract.findMany({
                 where: { userId, status: client_1.ContractStatus.ACTIVE },
-                include: { product: { select: { name: true, type: true, annualReturn: true, icon: true } } },
+                include: {
+                    product: { select: { name: true, type: true, annualReturn: true, icon: true } },
+                },
             }),
         ]);
         const totalInvested = activeContracts.reduce((sum, c) => sum + Number(c.amount), 0);

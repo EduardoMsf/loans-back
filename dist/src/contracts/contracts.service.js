@@ -96,8 +96,7 @@ let ContractsService = ContractsService_1 = class ContractsService {
             }
         }
         catch (error) {
-            if (error instanceof common_1.BadRequestException ||
-                error instanceof common_1.ForbiddenException) {
+            if (error instanceof common_1.BadRequestException || error instanceof common_1.ForbiddenException) {
                 throw error;
             }
             throw new common_1.BadRequestException('Token de firma expirado o inválido');

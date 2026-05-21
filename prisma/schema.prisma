@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ProductType {
+  FOREX
+  FUND
+  FIXED_INCOME
+  EQUITY
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum AccountType {
+  DEBIT
+  CREDIT
+}
+
+enum ContractStatus {
+  DRAFT
+  IN_PROGRESS
+  PENDING_SIGN
+  ACTIVE
+  COMPLETED
+  REJECTED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  rfc       String?
+  phone     String?
+  address   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts  Account[]
+  contracts Contract[]
+
+  @@map("users")
+}
+
+model Product {
+  id           String      @id @default(uuid())
+  name         String
+  type         ProductType
+  description  String
+  minAmount    Decimal     @db.Decimal(15, 2)
+  currency     String      @default("MXN")
+  annualReturn Decimal     @db.Decimal(5, 2)
+  riskLevel    RiskLevel
+  icon         String      @default("📈")
+  isActive     Boolean     @default(true)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  contracts Contract[]
+
+  @@map("products")
+}
+
+model Account {
+  id        String      @id @default(uuid())
+  userId    String
+  label     String
+  bank      String
+  clabe     String      @unique
+  lastFour  String      @db.VarChar(4)
+  type      AccountType
+  balance   Decimal     @db.Decimal(15, 2) @default(0)
+  currency  String      @default("MXN")
+  isActive  Boolean     @default(true)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  debitContracts  Contract[] @relation("DebitAccount")
+  creditContracts Contract[] @relation("CreditAccount")
+
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Contract {
+  id              String         @id @default(uuid())
+  folio           String         @unique
+  userId          String
+  productId       String
+  debitAccountId  String
+  creditAccountId String
+  status          ContractStatus @default(DRAFT)
+  amount          Decimal        @db.Decimal(15, 2)
+  currency        String         @default("MXN")
+  signedAt        DateTime?
+  clientInfo      Json
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  user           User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product        Product @relation(fields: [productId], references: [id])
+  debitAccount   Account @relation("DebitAccount", fields: [debitAccountId], references: [id])
+  creditAccount  Account @relation("CreditAccount", fields: [creditAccountId], references: [id])
+
+  @@index([userId])
+  @@index([status])
+  @@map("contracts")
+}
